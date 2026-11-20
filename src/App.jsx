@@ -237,19 +237,37 @@ const groupStageDataShanghai = [
   {
     group: 'Group A',
     teams: [
-      { name: 'G2 Esports', code: 'G2', badgeClass: 'badge-g2', region: 'AMERICAS', record: '2 - 0', status: 'Playoffs' },
-      { name: 'LOUD', code: 'LOUD', badgeClass: 'badge-loud', region: 'AMERICAS', record: '2 - 1', status: 'Playoffs' },
-      { name: '100 Thieves', code: '100T', badgeClass: 'badge-100t', region: 'AMERICAS', record: '1 - 2', status: 'Playoffs' },
-      { name: 'Paper Rex', code: 'PRX', badgeClass: 'badge-prx', region: 'PACIFIC', record: '1 - 2', status: 'Playoffs' }
+      { name: '100 Thieves', code: '100T', badgeClass: 'badge-100t', region: 'AMERICAS', record: '2 - 0', status: 'Advanced to Playoffs' },
+      { name: 'T1', code: 'T1', badgeClass: 'badge-t1', region: 'PACIFIC', record: '2 - 1', status: 'Advanced to Playoffs' },
+      { name: 'FUT Esports', code: 'FUT', badgeClass: 'badge-fut', region: 'EMEA', record: '1 - 2', status: 'Eliminated' },
+      { name: 'JD Gaming', code: 'JDG', badgeClass: 'badge-jdg', region: 'CN', record: '0 - 2', status: 'Eliminated' }
     ]
   },
   {
     group: 'Group B',
     teams: [
-      { name: 'Team Vitality', code: 'VIT', badgeClass: 'badge-vit', region: 'EMEA', record: '2 - 0', status: 'Playoffs' },
-      { name: 'NRG', code: 'NRG', badgeClass: 'badge-nrg', region: 'AMERICAS', record: '2 - 1', status: 'Playoffs' },
-      { name: 'T1', code: 'T1', badgeClass: 'badge-t1', region: 'PACIFIC', record: '1 - 2', status: 'Playoffs' },
-      { name: 'NONGSHIM REDFORCE', code: 'NS', badgeClass: 'badge-ns', region: 'PACIFIC', record: '1 - 2', status: 'Playoffs' }
+      { name: 'Team Vitality', code: 'VIT', badgeClass: 'badge-vit', region: 'EMEA', record: '2 - 0', status: 'Advanced to Playoffs' },
+      { name: 'LOUD', code: 'LOUD', badgeClass: 'badge-loud', region: 'AMERICAS', record: '2 - 1', status: 'Advanced to Playoffs' },
+      { name: 'Global Esports', code: 'GE', badgeClass: 'badge-ge', region: 'PACIFIC', record: '1 - 2', status: 'Eliminated' },
+      { name: 'EDward Gaming', code: 'EDG', badgeClass: 'badge-edg', region: 'CN', record: '0 - 2', status: 'Eliminated' }
+    ]
+  },
+  {
+    group: 'Group C',
+    teams: [
+      { name: 'Paper Rex', code: 'PRX', badgeClass: 'badge-prx', region: 'PACIFIC', record: '2 - 0', status: 'Advanced to Playoffs' },
+      { name: 'G2 Esports', code: 'G2', badgeClass: 'badge-g2', region: 'AMERICAS', record: '2 - 1', status: 'Advanced to Playoffs' },
+      { name: 'Team Liquid', code: 'TL', badgeClass: 'badge-tl', region: 'EMEA', record: '1 - 2', status: 'Eliminated' },
+      { name: 'TYLOO', code: 'TYL', badgeClass: 'badge-tyl', region: 'CN', record: '0 - 2', status: 'Eliminated' }
+    ]
+  },
+  {
+    group: 'Group D',
+    teams: [
+      { name: 'NRG', code: 'NRG', badgeClass: 'badge-nrg', region: 'AMERICAS', record: '2 - 0', status: 'Advanced to Playoffs' },
+      { name: 'Nongshim RedForce', code: 'NS', badgeClass: 'badge-ns', region: 'PACIFIC', record: '2 - 1', status: 'Advanced to Playoffs' },
+      { name: 'Karmine Corp', code: 'KC', badgeClass: 'badge-kc', region: 'EMEA', record: '1 - 2', status: 'Eliminated' },
+      { name: 'Xi Lai Gaming', code: 'XLG', badgeClass: 'badge-xlg', region: 'CN', record: '0 - 2', status: 'Eliminated' }
     ]
   }
 ];
@@ -534,6 +552,8 @@ function GroupStageView({ groups, searchQuery }) {
                 (t.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
                   t.code.toLowerCase().includes(searchQuery.toLowerCase()));
 
+              const isAdvanced = t.status === 'Advanced to Playoffs';
+
               return (
                 <div
                   key={i}
@@ -547,9 +567,11 @@ function GroupStageView({ groups, searchQuery }) {
                     <strong>{t.name}</strong>
                     <span style={{ fontSize: '0.75rem', color: '#8b97a4' }}>({t.region})</span>
                   </div>
-                  <div>
-                    <span style={{ marginRight: '10px', fontWeight: '600' }}>{t.record}</span>
-                    <span className="status-adv">{t.status}</span>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+                    <span style={{ fontWeight: '600' }}>{t.record}</span>
+                    <span className={isAdvanced ? 'status-adv' : 'status-elim'}>
+                      {t.status}
+                    </span>
                   </div>
                 </div>
               );
