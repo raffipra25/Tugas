@@ -574,7 +574,7 @@ export default function App() {
           <span className="brand-badge">CHAMPIONS SHANGHAI</span>
           <div className="brand-title">
             <h1>VCT Bracket</h1>
-            <span>Gambaran Umum • Playoff</span>
+            <span>Group Stage • Playoff</span>
           </div>
         </div>
 
