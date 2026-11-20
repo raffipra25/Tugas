@@ -78,7 +78,7 @@ const playoffsDataShanghai = [
       { map: 'Bind', pick: 'G2 Pick', score: '11 - 13', winner: 'Team Vitality' },
       { map: 'Lotus', pick: 'VIT Pick', score: '8 - 13', winner: 'Team Vitality' }
     ],
-    mvp: { player: 'Less', team: 'Team Vitality', acs: 259, kd: '39/26' }
+    mvp: { player: 'Jammpi', team: 'Team Vitality', acs: 259, kd: '39/26' }
   },
   {
     id: 'ub-r2-2',
@@ -384,7 +384,7 @@ function PlayoffBracketView({ matches, searchQuery, onSelectMatch }) {
           <span className="trophy-icon">🏆</span>
           <div className="champion-text">
             <h3>Champions Shanghai Winner: LOUD</h3>
-            <p>Mengalahkan Team Vitality 3–1 di Final • Finals MVP: aspas</p>
+            <p>Mengalahkan Team Vitality 3–1 di Final • Finals MVP: tkzin</p>
           </div>
         </div>
         <span style={{ fontSize: '0.82rem', color: '#8b97a4' }}>
