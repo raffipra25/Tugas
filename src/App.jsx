@@ -559,16 +559,17 @@ function GroupStageView({ groups, searchQuery }) {
                   key={i}
                   className="swiss-team-item"
                   style={{
-                    border: isMatch ? '1px solid #e5b85c' : '1px solid transparent'
+                    border: isMatch ? '1px solid #e5b85c' : '1px solid var(--border-color)'
                   }}
                 >
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                  <div className="swiss-team-left">
                     <span className={`team-badge ${t.badgeClass || ''}`}>{t.code}</span>
-                    <strong>{t.name}</strong>
-                    <span style={{ fontSize: '0.75rem', color: '#8b97a4' }}>({t.region})</span>
+                    <span className="swiss-team-name">{t.name}</span>
+                    <span className="swiss-team-region">({t.region})</span>
                   </div>
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-                    <span style={{ fontWeight: '600' }}>{t.record}</span>
+
+                  <div className="swiss-team-right">
+                    <span className="swiss-record">{t.record}</span>
                     <span className={isAdvanced ? 'status-adv' : 'status-elim'}>
                       {t.status}
                     </span>
